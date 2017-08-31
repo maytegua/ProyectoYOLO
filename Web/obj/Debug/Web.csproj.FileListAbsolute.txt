@@ -112,4 +112,7 @@ c:\users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Web\bin\es\Mic
 c:\users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Web\bin\es\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
 c:\users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Web\obj\Debug\Web.dll
 c:\users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Web\obj\Debug\Web.pdb
+C:\Users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Web\obj\Debug\Web.Migrations.InitialCreate.resources
+C:\Users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+C:\Users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Web\obj\Debug\Web.Migrations.Camposrequeridos.resources
 C:\Users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache

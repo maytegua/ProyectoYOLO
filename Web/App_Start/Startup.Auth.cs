@@ -25,7 +25,7 @@ namespace Web
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Account/Login"),
+                LoginPath = new PathString("/Home/Index"),
                 Provider = new CookieAuthenticationProvider
                 {
                     // Permite a la aplicación validar la marca de seguridad cuando el usuario inicia sesión.
@@ -54,15 +54,17 @@ namespace Web
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            // Autenticacion con facebook
+            app.UseFacebookAuthentication(
+               appId: "147936875795669",
+               appSecret: "bf4d7f746742f3da6d4dd8b54b434bbe");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            // Autenticacion con google
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "925363348846-827814h2u6ejg09o2t3icovsd7vsu3l9.apps.googleusercontent.com",
+                ClientSecret = "7rkqQMZ7Zz3-4QsKJSoH90W-"
+            });
         }
     }
 }

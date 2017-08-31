@@ -1,13 +1,41 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Web.Models
 {
     public class ExternalLoginConfirmationViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [Display(Name = "Usuario")]
+        public string UserName { get; set; }
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [Display(Name = "Nombres")]
+        public string Nombres { get; set; }
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [Display(Name = "Apellidos")]
+        public string Apellidos { get; set; }
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [EmailAddress]
         [Display(Name = "Correo electrónico")]
-        public string Email { get; set; }
+        public string Email { get; set; }       
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [Display(Name = "Teléfono")]
+        public string PhoneNumber { get; set; }
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [Display(Name = "Fecha de Nacimiento")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime FechaNacimiento { get; set; }
+
+        [Display(Name = "Biografía")]
+        [DataType(DataType.MultilineText)]
+        public string Biografia { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -48,10 +76,9 @@ namespace Web.Models
 
     public class LoginViewModel
     {
-        [Required]
-        [Display(Name = "Correo electrónico")]
-        [EmailAddress]
-        public string Email { get; set; }
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [Display(Name = "Usuario")]
+        public string UserName { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
@@ -64,18 +91,20 @@ namespace Web.Models
 
     public class RegisterViewModel
     {
-        [Required]
-        [EmailAddress]
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [Display(Name = "Usuario")]
+        public string UserName { get; set; }
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
         [Display(Name = "Nombres")]
         public string Nombres { get; set; }
 
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "El campo {0} es requerido")]
         [Display(Name = "Apellidos")]
         public string Apellidos { get; set; }
 
-
-        [Required]
+        [Required(ErrorMessage = "El campo {0} es requerido")]
         [EmailAddress]
         [Display(Name = "Correo electrónico")]
         public string Email { get; set; }
@@ -90,6 +119,20 @@ namespace Web.Models
         [Display(Name = "Confirmar contraseña")]
         [Compare("Password", ErrorMessage = "La contraseña y la contraseña de confirmación no coinciden.")]
         public string ConfirmPassword { get; set; }
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [Display(Name = "Teléfono")]
+        public string PhoneNumber { get; set; }
+
+        [Required(ErrorMessage = "El campo {0} es requerido")]
+        [Display(Name = "Fecha de Nacimiento")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime FechaNacimiento { get; set; }
+
+        [Display(Name = "Biografía")]
+        [DataType(DataType.MultilineText)]
+        public string Biografia { get; set; }
     }
 
     public class ResetPasswordViewModel

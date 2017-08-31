@@ -66,7 +66,7 @@ namespace Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl = "~/Home/Default")
         {
             if (!ModelState.IsValid)
             {
@@ -75,7 +75,7 @@ namespace Web.Controllers
 
             // No cuenta los errores de inicio de sesión para el bloqueo de la cuenta
             // Para permitir que los errores de contraseña desencadenen el bloqueo de la cuenta, cambie a shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.UserName, model.Password, model.RememberMe, shouldLockout: false);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -127,7 +127,7 @@ namespace Web.Controllers
                     return RedirectToLocal(model.ReturnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
-                case SignInStatus.Failure:
+                case SignInStatus.Failure:                    
                 default:
                     ModelState.AddModelError("", "Código no válido.");
                     return View(model);
@@ -151,7 +151,10 @@ namespace Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.UserName, Email = model.Email,
+                                                 Nombres = model.Nombres, Apellidos = model.Apellidos,
+                                                 PhoneNumber = model.PhoneNumber, FechaNacimiento = model.FechaNacimiento,
+                                                 Biografia = model.Biografia};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -163,7 +166,7 @@ namespace Web.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Default", "Home");
                 }
                 AddErrors(result);
             }
@@ -276,7 +279,7 @@ namespace Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult ExternalLogin(string provider, string returnUrl)
+        public ActionResult ExternalLogin(string provider, string returnUrl = "~/Home/Default")
         {
             // Solicitar redireccionamiento al proveedor de inicio de sesión externo
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
@@ -352,7 +355,7 @@ namespace Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl)
+        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl = "~/Home/Default")
         {
             if (User.Identity.IsAuthenticated)
             {
@@ -367,7 +370,16 @@ namespace Web.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser
+                {
+                    UserName = model.UserName,
+                    Email = model.Email,
+                    Nombres = model.Nombres,
+                    Apellidos = model.Apellidos,
+                    PhoneNumber = model.PhoneNumber,
+                    FechaNacimiento = model.FechaNacimiento,
+                    Biografia = model.Biografia
+                };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

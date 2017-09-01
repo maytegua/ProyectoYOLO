@@ -25,8 +25,8 @@
                             <!-- <li><a href="#blog">Blog</a></li> -->
                             <li><a href="#testimonial">Testimonios</a></li>
                             <li><a href="#contact">Contáctanos</a></li>
-                            <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#registro">Registro</button>
-
+                            <a href="~/Account/Register"><button class="btn btn-info btn-lg" @*data-toggle="modal" data-target="#registro"*@>Registro</button></a>
+                            <a href="~/Account/Login"><button class="btn btn-info btn-lg" @*data-toggle="modal" data-target="#iniciosesion"*@>Inicia Sesión</button></a>
                             <div class="modal fade" id="registro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">
@@ -48,13 +48,13 @@
                                             </div>
                                             <div class="form-bottom">
                                                 @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "registration-form", role = "form" }))
-                                                {                                                                    
+                                                {
                                                         @Html.AntiForgeryToken()
                                                         <div>
                                                             <div class="form-group" style="float:left; width: 49%;">
                                                                 <label class="sr-only" for="form-first-name">Nombres</label>
                                                                 @*<input type="text" name="form-first-name" placeholder="Nombres..." class="form-first-name form-control" id="form-first-name">*@
-                                                                @Html.TextBoxFor(m => m.Nombres, new { @class = "form-control" , @placeholder="Nombres..."})
+                                                                @Html.TextBoxFor(m => m.Nombres, new { @class = "form-control", @placeholder = "Nombres..." })
                                                                 @Html.ValidationMessageFor(m => m.Nombres, "", new { @class = "label label-danger" })                                                                
                                                             </div>
                                                             <div class="form-group" style="float:right; width: 49%;">
@@ -69,7 +69,7 @@
                                                             <label class="sr-only" for="form-user">Usuario</label>
                                                             @*<input type="text" name="form-user" placeholder="Usuario..." class="form-user form-control" id="form-user">*@
                                                             @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", @placeholder = "Usuario..." })
-                                                            @Html.ValidationMessageFor(m => m.UserName,"" , new { @class="label label-danger"})
+                                                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "label label-danger" })
                                                         </div>
 
 
@@ -107,25 +107,19 @@
                                                         <div class="form-group">
                                                             <label for="date">Fecha de nacimiento</label>
                                                             @*<input type="text" name="form-date" placeholder="Fecha de nacimiento..." class="form-date form-control" id="form-date">*@
-                                                            @Html.TextBoxFor(m => m.FechaNacimiento, new { @class = "form-date form-control", @placeholder = "Fecha de Nacimiento...", type = "date", @id="date"})
-                                                            @Html.ValidationMessageFor(m => m.FechaNacimiento, "", new { @class = "label label-danger"})
+                                                            @Html.TextBoxFor(m => m.FechaNacimiento, new { @class = "form-date form-control", @placeholder = "Fecha de Nacimiento...", type = "date", @id = "date" })
+                                                            @Html.ValidationMessageFor(m => m.FechaNacimiento, "", new { @class = "label label-danger" })
                                                         </div>
                                                         <div class="form-group">
                                                             <label class="sr-only" for="form-about-yourself">Mini Biografía</label>
                                                             @*<textarea name="form-about-yourself" placeholder="Mini Biografía..."
                                                                       class="form-about-yourself form-control" id="form-about-yourself"></textarea>*@
-                                                            @Html.TextAreaFor(m => m.Biografia, new { @class = "form-control", @placeholder = "Biografía..."})
+                                                            @Html.TextAreaFor(m => m.Biografia, new { @class = "form-control", @placeholder = "Biografía..." })
                                                             @Html.ValidationMessageFor(m => m.Biografia, "", new { @class = "label label-danger" })
                                                         </div>
                                                         <button type="submit" class="btn">¡Registrarme!</button>
                                                         @*<input type="submit" class="btn" value="¡Registrarme!" />*@
                                                 }
-                                                <div class="col-md-4">
-                                                    <section id="socialLoginForm">
-                                                        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-                                                    </section>
-                                                </div>
-                                                
                                             </div>
 
 
@@ -149,7 +143,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <button class="btn btn-info btn-lg" data-toggle="modal" data-target="#iniciosesion">Inicia Sesión</button>
+                            
                             <div class="modal fade" id="iniciosesion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-content">

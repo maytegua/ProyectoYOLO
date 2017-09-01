@@ -18,7 +18,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
+    <IISExpressSSLPort>44370</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -372,6 +372,8 @@
     <Content Include="FrontEnd\js\script.js" />
     <Content Include="FrontEnd\js\scripts.js" />
     <Content Include="FrontEnd\js\wow.min.js" />
+    <Content Include="FrontEnd\zocial\zocial.css" />
+    <Content Include="FrontEnd\zocial\zocial.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
@@ -461,6 +463,9 @@
     <Content Include="FrontEnd\fonts\ionicons.eot" />
     <Content Include="FrontEnd\fonts\ionicons.ttf" />
     <Content Include="FrontEnd\fonts\ionicons.woff" />
+    <Content Include="FrontEnd\zocial\zocial.eot" />
+    <Content Include="FrontEnd\zocial\zocial.ttf" />
+    <Content Include="FrontEnd\zocial\zocial.woff" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />

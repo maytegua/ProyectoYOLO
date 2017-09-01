@@ -25,7 +25,7 @@ namespace Web
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                LoginPath = new PathString("/Home/Index"),
+                LoginPath = new PathString("/Account/Login"),
                 Provider = new CookieAuthenticationProvider
                 {
                     // Permite a la aplicación validar la marca de seguridad cuando el usuario inicia sesión.
@@ -56,8 +56,8 @@ namespace Web
 
             // Autenticacion con facebook
             app.UseFacebookAuthentication(
-               appId: "147936875795669",
-               appSecret: "bf4d7f746742f3da6d4dd8b54b434bbe");
+               appId: "1726315767379272",
+               appSecret: "384d4d11f0edae765da1893fa7c23e9b");
 
             // Autenticacion con google
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()

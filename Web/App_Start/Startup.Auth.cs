@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
+using Microsoft.Owin.Security.Facebook;
 using Microsoft.Owin.Security.Google;
 using Owin;
 using Web.Models;
@@ -57,7 +58,8 @@ namespace Web
             // Autenticacion con facebook
             app.UseFacebookAuthentication(
                appId: "1726315767379272",
-               appSecret: "384d4d11f0edae765da1893fa7c23e9b");
+               appSecret: "384d4d11f0edae765da1893fa7c23e9b"
+            );
 
             // Autenticacion con google
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()

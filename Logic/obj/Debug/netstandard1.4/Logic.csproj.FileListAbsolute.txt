@@ -1,0 +1,6 @@
+C:\Users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Logic\bin\Debug\netstandard1.4\Logic.deps.json
+C:\Users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Logic\bin\Debug\netstandard1.4\Logic.dll
+C:\Users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Logic\bin\Debug\netstandard1.4\Logic.pdb
+C:\Users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Logic\obj\Debug\netstandard1.4\Logic.AssemblyInfo.cs
+C:\Users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Logic\obj\Debug\netstandard1.4\Logic.dll
+C:\Users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Logic\obj\Debug\netstandard1.4\Logic.pdb

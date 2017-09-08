@@ -66,7 +66,7 @@ namespace Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl = "~/Home/Default")
+        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl = "~/User/")
         {
             if (!ModelState.IsValid)
             {
@@ -166,7 +166,7 @@ namespace Web.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
 
-                    return RedirectToAction("Default", "Home");
+                    return RedirectToAction("Index", "User");
                 }
                 AddErrors(result);
             }
@@ -279,7 +279,7 @@ namespace Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult ExternalLogin(string provider, string returnUrl = "~/Home/Default")
+        public ActionResult ExternalLogin(string provider, string returnUrl = "~/User/")
         {
             // Solicitar redireccionamiento al proveedor de inicio de sesión externo
             return new ChallengeResult(provider, Url.Action("ExternalLoginCallback", "Account", new { ReturnUrl = returnUrl }));
@@ -360,7 +360,7 @@ namespace Web.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl = "~/Home/Default")
+        public async Task<ActionResult> ExternalLoginConfirmation(ExternalLoginConfirmationViewModel model, string returnUrl = "~/User/")
         {
             if (User.Identity.IsAuthenticated)
             {

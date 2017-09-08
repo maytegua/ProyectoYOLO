@@ -49,7 +49,5 @@ namespace Web.Models
         {
             return new ApplicationDbContext();
         }
-
-        //public DbSet<ApplicationUser> Users { get; set; }
     }
 }

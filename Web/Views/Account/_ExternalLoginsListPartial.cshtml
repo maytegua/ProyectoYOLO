@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-md-12">
         <br />
-        <h4>Usa otro servicio para iniciar sesión.</h4>        
+        <h4>Usa otro servicio para registrarte e iniciar sesión.</h4>        
         @{
             var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
             if (loginProviders.Count() == 0)

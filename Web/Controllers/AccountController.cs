@@ -15,6 +15,8 @@ namespace Web.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        ApplicationDbContext db = new ApplicationDbContext();
+
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -138,7 +140,8 @@ namespace Web.Controllers
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
-        {
+        {           
+            ViewBag.Sexo = new SelectList(db.Sexo, "SexoId", "Nombre");
             return View();
         }
 
@@ -154,7 +157,7 @@ namespace Web.Controllers
                 var user = new ApplicationUser { UserName = model.UserName, Email = model.Email,
                                                  Nombres = model.Nombres, Apellidos = model.Apellidos,
                                                  PhoneNumber = model.PhoneNumber, FechaNacimiento = model.FechaNacimiento,
-                                                 Biografia = model.Biografia};
+                                                 Biografia = model.Biografia, SexoId = model.SexoId};
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -325,6 +328,8 @@ namespace Web.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ExternalLoginCallback(string returnUrl)
         {
+            ViewBag.Sexo = new SelectList(db.Sexo, "SexoId", "Nombre");
+
             var loginInfo = await AuthenticationManager.GetExternalLoginInfoAsync();
 
             if (loginInfo == null)
@@ -383,7 +388,8 @@ namespace Web.Controllers
                     Apellidos = model.Apellidos,
                     PhoneNumber = model.PhoneNumber,
                     FechaNacimiento = model.FechaNacimiento,
-                    Biografia = model.Biografia
+                    Biografia = model.Biografia,
+                    SexoId = model.SexoId
                 };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)

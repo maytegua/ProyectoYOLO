@@ -205,10 +205,23 @@
     <Compile Include="Migrations\201708301846321_Campos requeridos.Designer.cs">
       <DependentUpon>201708301846321_Campos requeridos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201709131705093_ModelSexo.cs" />
+    <Compile Include="Migrations\201709131705093_ModelSexo.Designer.cs">
+      <DependentUpon>201709131705093_ModelSexo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709131710183_CampoSexoIdApplicationUser.cs" />
+    <Compile Include="Migrations\201709131710183_CampoSexoIdApplicationUser.Designer.cs">
+      <DependentUpon>201709131710183_CampoSexoIdApplicationUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201709131714414_RelacionUserSexo.cs" />
+    <Compile Include="Migrations\201709131714414_RelacionUserSexo.Designer.cs">
+      <DependentUpon>201709131714414_RelacionUserSexo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Sexo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Views\YoloContext.cs" />
@@ -630,6 +643,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201708301846321_Campos requeridos.resx">
       <DependentUpon>201708301846321_Campos requeridos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709131705093_ModelSexo.resx">
+      <DependentUpon>201709131705093_ModelSexo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709131710183_CampoSexoIdApplicationUser.resx">
+      <DependentUpon>201709131710183_CampoSexoIdApplicationUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201709131714414_RelacionUserSexo.resx">
+      <DependentUpon>201709131714414_RelacionUserSexo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -42,6 +42,13 @@
                 @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "label label-danger" })
             </div>
 
+            <div class="form-group">
+                <label class="sr-only" for="form-sexr">Sexo</label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(m => m.SexoId, (SelectList)ViewBag.Sexo, "[Seleccione Sexo ...]", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SexoId, "", new { @class = "label label-danger" })
+                </div>
+            </div>
 
             <div class="form-group">
                 <label class="sr-only" for="form-email">Email</label>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
@@ -19,6 +20,10 @@ namespace Web.Models
         [Display(Name = "Apellidos")]
         public string Apellidos { get; set; }
 
+        [Required(ErrorMessage ="El {0} es requerido")]
+        [Display(Name ="Sexo")]
+        public int SexoId { get; set; }
+
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [Display(Name = "Fecha de Nacimiento")]
         [DataType(DataType.Date)]
@@ -28,6 +33,8 @@ namespace Web.Models
         [Display(Name = "Biografía")]
         [DataType(DataType.MultilineText)]
         public string Biografia { get; set; }
+
+        public virtual Sexo Sexo { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -49,5 +56,7 @@ namespace Web.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Sexo> Sexo { get; set; }
     }
 }

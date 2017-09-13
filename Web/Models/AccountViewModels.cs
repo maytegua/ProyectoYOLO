@@ -18,6 +18,10 @@ namespace Web.Models
         [Display(Name = "Apellidos")]
         public string Apellidos { get; set; }
 
+        [Required(ErrorMessage = "El {0} es requerido")]
+        [Display(Name = "Sexo")]
+        public int SexoId { get; set; }
+
         [Required(ErrorMessage = "El campo {0} es requerido")]
         [EmailAddress]
         [Display(Name = "Correo electrónico")]
@@ -36,6 +40,8 @@ namespace Web.Models
         [Display(Name = "Biografía")]
         [DataType(DataType.MultilineText)]
         public string Biografia { get; set; }
+
+        public virtual Sexo Sexo { get; set; }
     }
 
     public class ExternalLoginListViewModel
@@ -133,6 +139,10 @@ namespace Web.Models
         [Display(Name = "Biografía")]
         [DataType(DataType.MultilineText)]
         public string Biografia { get; set; }
+
+        [Required(ErrorMessage = "El {0} es requerido")]
+        [Display(Name = "Sexo")]
+        public int SexoId { get; set; }
     }
 
     public class ResetPasswordViewModel

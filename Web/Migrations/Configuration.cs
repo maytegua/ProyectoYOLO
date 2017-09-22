@@ -4,6 +4,7 @@ namespace Web.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using Web.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<Web.Models.ApplicationDbContext>
     {
@@ -19,6 +20,10 @@ namespace Web.Migrations
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
             //  to avoid creating duplicate seed data.
+            context.Sexo.AddOrUpdate(s => s.Nombre,
+                new Sexo { Nombre = "Masculino" },
+                new Sexo { Nombre = "Femenino" }
+                );
         }
     }
 }

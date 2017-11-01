@@ -34,7 +34,12 @@ namespace Web.Models
         [DataType(DataType.MultilineText)]
         public string Biografia { get; set; }
 
+        //Propiedad Virtual para la relacion de Usuario/Sexo
         public virtual Sexo Sexo { get; set; }
+
+        //Propiedad Virtual para la Relación Viaje/Usuario
+        public virtual ICollection<Viaje> Viajes { get; set; }
+
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
@@ -51,12 +56,25 @@ namespace Web.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+       
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            //modelBuilder.Entity<IdentityUser>().Property(p => p.Id).HasColumnName("UserId");
+            modelBuilder.Entity<Viaje>().Property(p => p.FechaRegreso).IsOptional();
+            modelBuilder.Entity<Viaje>().Property(p => p.HoraRegreso).IsOptional();
+            modelBuilder.Entity<Viaje>().Property(p => p.DetallesViaje).IsOptional();
+        }
+
+        //public DbSet<ModeloAjax> ModeloAjax { get; set; }
+        public DbSet<Viaje> Viajes { get; set; }
+        public DbSet<TipoVehiculo> TipoVehiculo { get; set; }
         public DbSet<Sexo> Sexo { get; set; }
     }
 }

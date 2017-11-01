@@ -1,7 +1,7 @@
 ﻿google.maps.event.addDomListener(window, "load", () => {
     const user = new UserLocation(() => {
         const mapOptions = {
-            zoom: 20,
+            zoom: 17,
             center: {
                 lat: user.latitude,
                 lng: user.longitude
@@ -76,7 +76,7 @@
             });
             marker2.setVisible(true);
 
-            //calcularDistancia(place2, user);
+            calcularDistancia(place2, user);
             trazarRuta(map);
         });
 
@@ -102,9 +102,11 @@ function calcularDistancia(place,origen)
         const distancia = info.distance.text;
         const duracion = info.duration.text;
 
-        /*document.getElementById('info').innerHTML = `
+        console.log("Distancia: "+distancia);
+        console.log("Duracion: "+duracion);
+        document.getElementById('info').innerHTML = `
             Estás a ${distancia} y tardas ${duracion} en llegar
-        `;*/
+        `;
         
     });    
 }
@@ -118,8 +120,8 @@ function trazarRuta(map)
     };
     var origen = document.getElementById('search-place_1').value;//new google.maps.LatLng(lat, long);
     var destino = document.getElementById('search-place_2').value;
-    console.log("origen" + origen);
-    console.log("destino" + destino);
+    //console.log("origen" + origen);
+    //console.log("destino" + destino);
 
     var objConfigDS = {
         origin: origen,//gLatLong, //Lat o Long o String domicilio

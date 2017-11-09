@@ -121,3 +121,7 @@ C:\Users\admin\Documents\Visual Studio 2017\Projects\ProyectoYOLO\Web\obj\Debug\
 C:\Users\admin\Documents\Visual Studio 2017\Projects\ProyectoYOLO\Web\obj\Debug\Web.Migrations.Model_TipoVehiculo.resources
 C:\Users\admin\Documents\Visual Studio 2017\Projects\ProyectoYOLO\Web\obj\Debug\Web.Migrations.Model_Viaje_And_Relation_ApplicationUser_TipoVehiculo.resources
 C:\Users\admin\Documents\Visual Studio 2017\Projects\ProyectoYOLO\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+C:\Users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Web\bin\PagedList.dll
+C:\Users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Web\bin\PagedList.Mvc.dll
+C:\Users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Web\bin\PagedList.xml
+C:\Users\admin\documents\visual studio 2017\Projects\ProyectoYOLO\Web\bin\PagedList.Mvc.xml

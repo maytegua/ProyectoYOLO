@@ -1,4 +1,7 @@
-﻿@{
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<Web.Models.Viaje>
+
+@{
     ViewBag.Title = "Contact";
 }
 <h2>@ViewBag.Title.</h2>
@@ -15,3 +18,25 @@
     <strong>Support:</strong>   <a href="mailto:Support@example.com">Support@example.com</a><br />
     <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
 </address>
+
+<table class="table">
+    <tr>
+        <th>Punto de Partida</th>
+        <th>Punto de Destino</th>
+        <th>Detalles</th>
+        <th>Usuario</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.PuntoPartida</td>
+            <td>@item.PuntoDestino</td>
+            <td>@item.DetallesViaje</td>
+            <td>@item.ApplicationUserId</td>
+        </tr>
+    }
+
+    
+</table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("Contact", new { page = page }), PagedListRenderOptions.PageNumbersOnly)

@@ -69,5 +69,15 @@ namespace Web.Controllers
             
             return View("BusquedaViajes", listaViajes/*.ToPagedList(pageNumber,pageSize)*/);
         }
+
+        [HttpGet]
+        public ActionResult Reserva()
+        {
+
+            
+            //PagedList<Viaje> modelPaginado = new PagedList<Viaje>(listaViajes, pageNumber, pageSize);
+
+            return View();
+        }
     }
 }
